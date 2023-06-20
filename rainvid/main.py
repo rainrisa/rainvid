@@ -8,7 +8,7 @@ load_dotenv()
 telegram.start()
 
 random_message_id = telegram.get_random_message_id()
-file_path = telegram.download_media(random_message_id)
+file_path = telegram.download_thumbnail(random_message_id)
 media_upload = twitter.upload_media(file_path)
 caption = getenv('TWITTER_DEFAULT_CAPTION')
 tweet = twitter.tweet(

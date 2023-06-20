@@ -1,4 +1,5 @@
 from pyrogram import Client 
+from pyrogram.types import Message
 from dotenv import load_dotenv
 from os import getenv
 import random
@@ -24,6 +25,14 @@ class Telegram:
     message = self.client.get_messages(self.base_chat_id, message_id)
     file_path = self.client.download_media(message)
     return file_path
+
+  def download_thumbnail(self, message_id: int):
+    message = self.client.get_messages(self.base_chat_id, message_id)
+    video = message.video
+
+    if video and video.thumbs:
+      file_path = self.client.download_media(video.thumbs[0])
+      return file_path
 
   def send_log(self, text: str):
     self.client.send_message(self.log_chat_id, text)
