@@ -1,0 +1,5 @@
+downloads/
+*.env
+*.session
+__pycache__
+venv/
