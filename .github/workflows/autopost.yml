@@ -21,7 +21,7 @@ jobs:
         run: echo '${{ secrets.ENV_FILE }}' > .env
 
       - name: Installing dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r --no-cache-dir requirements.txt
 
       - name: Run the project
         run: python rainvid/main.py
