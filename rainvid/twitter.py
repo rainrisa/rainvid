@@ -21,6 +21,9 @@ class Twitter:
     )
     self.api = tweepy.API(self.auth)
 
+  def get_me(self):
+    return self.client.get_me().data
+
   def tweet(self, text: str, media_ids: [str] = []):
     return self.client.create_tweet(
       text=text,
