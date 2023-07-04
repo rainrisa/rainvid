@@ -17,6 +17,6 @@ tweet = twitter.tweet(
   media_ids=[media_upload.media_id_string]
 )
 tweet_url = f"https://twitter.com/{me['username']}/status/{tweet.data['id']}"
-telegram.send_log(tweet_url)
+telegram.send_log(tweet_url, file_path)
 
 telegram.stop()

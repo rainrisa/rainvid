@@ -34,8 +34,8 @@ class Telegram:
       file_path = self.client.download_media(video.thumbs[0])
       return file_path
 
-  def send_log(self, text: str):
-    self.client.send_message(self.log_chat_id, text)
+  def send_log(self, text: str, photo_file_path: str):
+    self.client.send_photo(self.log_chat_id, photo_file_path, text)
 
   def get_random_message_id(self):
     random_line = random.choice(list(open('./messageIds.txt')))
